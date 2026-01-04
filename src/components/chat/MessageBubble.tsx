@@ -1,7 +1,7 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
+import { renderMarkdown } from '@/lib/utils/markdown';
 import { Bot, User, Copy, Check } from 'lucide-react';
-import { useState } from 'react';
 import type { Message } from '@/lib/types';
 
 interface MessageBubbleProps {
@@ -68,8 +68,12 @@ export const MessageBubble = memo(function MessageBubble({
         )}
 
         {/* Message text */}
-        <div className="whitespace-pre-wrap text-sm leading-relaxed">
-          {message.content}
+        <div className="text-sm leading-relaxed">
+          {isUser ? (
+            <span className="whitespace-pre-wrap">{message.content}</span>
+          ) : (
+            renderMarkdown(message.content)
+          )}
           {isStreaming && !message.content && (
             <span className="inline-flex gap-1">
               <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />

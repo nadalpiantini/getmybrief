@@ -1,10 +1,12 @@
 import { Toaster } from 'react-hot-toast';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useSettingsStore } from '@/lib/stores/settings-store';
+import { useCreatorStore } from '@/lib/stores/creator-store';
 import { ChatContainer } from '@/components/chat';
 import { TemplateGrid } from '@/components/templates';
 import { CalendarView } from '@/components/calendar';
 import { SettingsPanel } from '@/components/settings';
+import { CreatorOnboarding } from '@/components/onboarding';
 import { useKeyboardShortcuts } from '@/lib/hooks';
 import { MessageSquare, Layout, Calendar, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
@@ -28,9 +30,31 @@ const TABS: { id: Tab; label: string; icon: typeof MessageSquare }[] = [
 
 function AppContent() {
   const { activeTab, setActiveTab } = useSettingsStore();
+  const { showOnboarding, isProfileComplete } = useCreatorStore();
 
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
+
+  // Show onboarding if needed
+  if (showOnboarding && !isProfileComplete) {
+    return (
+      <div className="w-[400px] h-[600px] bg-background flex flex-col overflow-hidden">
+        <CreatorOnboarding />
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 3000,
+            style: {
+              background: '#1a1a1a',
+              color: '#fff',
+              border: '1px solid #333',
+              fontSize: '14px',
+            },
+          }}
+        />
+      </div>
+    );
+  }
 
   const renderContent = () => {
     switch (activeTab) {

@@ -34,12 +34,11 @@ export function ChatInput({ onSend, isLoading = false, disabled = false }: ChatI
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-    // Cmd/Ctrl + Enter to send
-    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+    // Enter to send (Shift+Enter for newline)
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSend();
     }
-    // Enter without modifier for newline (default behavior)
   };
 
   const handleQuickPrompt = (prompt: string) => {
@@ -99,7 +98,7 @@ export function ChatInput({ onSend, isLoading = false, disabled = false }: ChatI
           />
           <div className="absolute right-3 bottom-2 text-xs text-gray-500">
             {input.length > 0 && (
-              <span className="opacity-60">Cmd+Enter para enviar</span>
+              <span className="opacity-60">Enter ↵</span>
             )}
           </div>
         </div>
