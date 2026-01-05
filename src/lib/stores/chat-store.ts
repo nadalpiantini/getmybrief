@@ -70,7 +70,7 @@ export const useChatStore = create<ChatStore>()(
       resetStream: () => set({ currentStreamContent: '', isStreaming: false }),
     }),
     {
-      name: 'influencer-chat-storage',
+      name: 'getmybrief-chat-storage',
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({ messages: state.messages }),
     }

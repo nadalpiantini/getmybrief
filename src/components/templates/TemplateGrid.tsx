@@ -13,17 +13,17 @@ export function TemplateGrid() {
   const handleSelect = (template: Template) => {
     if (selectedTemplate?.id === template.id) {
       selectTemplate(null);
-      toast.success('Template deseleccionado');
+      toast.success('Template deselected');
     } else {
       selectTemplate(template);
-      toast.success(`Template "${template.name}" seleccionado`);
+      toast.success(`Template "${template.name}" selected`);
     }
   };
 
   const handleUseTemplate = () => {
     if (selectedTemplate) {
       setActiveTab('chat');
-      toast.success('Ahora puedes usar el template en el chat');
+      toast.success('You can now use the template in chat');
     }
   };
 
@@ -38,7 +38,7 @@ export function TemplateGrid() {
           <div>
             <h2 className="font-semibold text-white">Templates</h2>
             <p className="text-xs text-gray-500">
-              {selectedTemplate ? `Seleccionado: ${selectedTemplate.name}` : 'Elige un estilo'}
+              {selectedTemplate ? `Selected: ${selectedTemplate.name}` : 'Choose a style'}
             </p>
           </div>
         </div>
@@ -66,7 +66,7 @@ export function TemplateGrid() {
             className="w-full"
             leftIcon={<ArrowLeft className="w-4 h-4" />}
           >
-            Usar en Chat
+            Use in Chat
           </Button>
         </div>
       )}

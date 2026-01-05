@@ -4,23 +4,23 @@ import { useCreatorStore, type CreatorProfile } from '@/lib/stores/creator-store
 import { User, Mic, Sparkles, ArrowRight, Check } from 'lucide-react';
 
 const NICHE_SUGGESTIONS = [
-  'Productividad',
-  'Emprendimiento',
-  'Finanzas personales',
-  'Desarrollo personal',
+  'Productivity',
+  'Entrepreneurship',
+  'Personal Finance',
+  'Personal Development',
   'Fitness',
-  'Marketing digital',
+  'Digital Marketing',
   'Lifestyle',
   'Tech',
 ];
 
 const VOICE_SUGGESTIONS = [
-  'Directo y sin filtros',
-  'Motivacional y energico',
-  'Calido y cercano',
-  'Profesional y educativo',
-  'Humoristico y casual',
-  'Reflexivo y profundo',
+  'Direct and unfiltered',
+  'Motivational and energetic',
+  'Warm and relatable',
+  'Professional and educational',
+  'Humorous and casual',
+  'Reflective and deep',
 ];
 
 export function CreatorOnboarding() {
@@ -54,9 +54,9 @@ export function CreatorOnboarding() {
     <div className="flex flex-col h-full bg-background">
       {/* Header */}
       <div className="px-6 py-4 border-b border-border">
-        <h2 className="text-lg font-bold text-white">Configurar tu perfil de creador</h2>
+        <h2 className="text-lg font-bold text-white">Set up your creator profile</h2>
         <p className="text-sm text-gray-400 mt-1">
-          Esto me ayuda a generar contenido alineado con tu marca personal
+          This helps me generate content aligned with your personal brand
         </p>
 
         {/* Progress */}
@@ -81,21 +81,21 @@ export function CreatorOnboarding() {
                 <User className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold text-white">Identidad</h3>
-                <p className="text-sm text-gray-400">Como te conoce tu audiencia</p>
+                <h3 className="font-semibold text-white">Identity</h3>
+                <p className="text-sm text-gray-400">How your audience knows you</p>
               </div>
             </div>
 
             <Input
-              label="Nombre o alias"
+              label="Name or alias"
               value={formData.name || ''}
               onChange={(e) => updateField('name', e.target.value)}
-              placeholder="@tunombre o como te conocen"
+              placeholder="@yourname or how they know you"
             />
 
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Tu nicho principal
+                Your main niche
               </label>
               <div className="flex flex-wrap gap-2 mb-3">
                 {NICHE_SUGGESTIONS.map((niche) => (
@@ -115,7 +115,7 @@ export function CreatorOnboarding() {
               <Input
                 value={formData.niche || ''}
                 onChange={(e) => updateField('niche', e.target.value)}
-                placeholder="O escribe tu propio nicho..."
+                placeholder="Or type your own niche..."
               />
             </div>
           </div>
@@ -128,14 +128,14 @@ export function CreatorOnboarding() {
                 <Mic className="w-5 h-5 text-accent" />
               </div>
               <div>
-                <h3 className="font-semibold text-white">Voz y audiencia</h3>
-                <p className="text-sm text-gray-400">Como hablas y a quien</p>
+                <h3 className="font-semibold text-white">Voice and audience</h3>
+                <p className="text-sm text-gray-400">How you speak and to whom</p>
               </div>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Tu estilo de comunicacion
+                Your communication style
               </label>
               <div className="flex flex-wrap gap-2 mb-3">
                 {VOICE_SUGGESTIONS.map((voice) => (
@@ -155,15 +155,15 @@ export function CreatorOnboarding() {
               <Input
                 value={formData.voice || ''}
                 onChange={(e) => updateField('voice', e.target.value)}
-                placeholder="Describe tu tono unico..."
+                placeholder="Describe your unique tone..."
               />
             </div>
 
             <Input
-              label="Tu audiencia objetivo"
+              label="Your target audience"
               value={formData.targetAudience || ''}
               onChange={(e) => updateField('targetAudience', e.target.value)}
-              placeholder="Ej: Emprendedores de 25-35 que buscan productividad"
+              placeholder="Ex: Entrepreneurs 25-35 seeking productivity"
             />
           </div>
         )}
@@ -175,42 +175,42 @@ export function CreatorOnboarding() {
                 <Sparkles className="w-5 h-5 text-success" />
               </div>
               <div>
-                <h3 className="font-semibold text-white">Tu diferenciador</h3>
-                <p className="text-sm text-gray-400">Que te hace unico (opcional)</p>
+                <h3 className="font-semibold text-white">Your differentiator</h3>
+                <p className="text-sm text-gray-400">What makes you unique (optional)</p>
               </div>
             </div>
 
             <Input
-              label="Tu angulo unico"
+              label="Your unique angle"
               value={formData.uniqueAngle || ''}
               onChange={(e) => updateField('uniqueAngle', e.target.value)}
-              placeholder="Ej: CEO que documenta su journey desde cero"
-              helperText="Que perspectiva unica ofreces que otros no?"
+              placeholder="Ex: CEO documenting their journey from zero"
+              helperText="What unique perspective do you offer that others don't?"
             />
 
             {/* Summary Card */}
             <Card className="bg-primary/5 border-primary/20">
-              <h4 className="font-medium text-primary mb-3">Resumen de tu perfil</h4>
+              <h4 className="font-medium text-primary mb-3">Profile Summary</h4>
               <div className="space-y-2 text-sm">
                 <p>
-                  <span className="text-gray-400">Nombre:</span>{' '}
+                  <span className="text-gray-400">Name:</span>{' '}
                   <span className="text-white">{formData.name || '-'}</span>
                 </p>
                 <p>
-                  <span className="text-gray-400">Nicho:</span>{' '}
+                  <span className="text-gray-400">Niche:</span>{' '}
                   <span className="text-white">{formData.niche || '-'}</span>
                 </p>
                 <p>
-                  <span className="text-gray-400">Voz:</span>{' '}
+                  <span className="text-gray-400">Voice:</span>{' '}
                   <span className="text-white">{formData.voice || '-'}</span>
                 </p>
                 <p>
-                  <span className="text-gray-400">Audiencia:</span>{' '}
+                  <span className="text-gray-400">Audience:</span>{' '}
                   <span className="text-white">{formData.targetAudience || '-'}</span>
                 </p>
                 {formData.uniqueAngle && (
                   <p>
-                    <span className="text-gray-400">Angulo:</span>{' '}
+                    <span className="text-gray-400">Angle:</span>{' '}
                     <span className="text-white">{formData.uniqueAngle}</span>
                   </p>
                 )}
@@ -224,19 +224,19 @@ export function CreatorOnboarding() {
       <div className="px-6 py-4 border-t border-border flex gap-3">
         {step > 1 && (
           <Button variant="secondary" onClick={() => setStep((s) => s - 1)} className="flex-1">
-            Atras
+            Back
           </Button>
         )}
 
         {step < 3 ? (
           <Button onClick={() => setStep((s) => s + 1)} disabled={!canProceed()} className="flex-1">
-            Siguiente
+            Next
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         ) : (
           <Button onClick={handleComplete} disabled={!canProceed()} className="flex-1">
             <Check className="w-4 h-4 mr-2" />
-            Empezar a crear
+            Start creating
           </Button>
         )}
       </div>

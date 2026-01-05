@@ -43,8 +43,8 @@ const DEFAULT_PROFILE: CreatorProfile = {
   voice: '',
   targetAudience: '',
   uniqueAngle: '',
-  symbols: ['reloj 5AM', 'cafe', 'libreta'],
-  hashtags: ['#SistemaNadal', '#CreadorEjecutivo'],
+  symbols: ['5AM clock', 'coffee', 'notebook'],
+  hashtags: ['#GetMyBrief', '#ExecutiveCreator'],
 };
 
 // Note: ReelBrief defaults are handled in component state
@@ -76,7 +76,7 @@ export const useCreatorStore = create<CreatorStore>()(
       setShowBriefForm: (show) => set({ showBriefForm: show }),
     }),
     {
-      name: 'influencer-creator-storage',
+      name: 'getmybrief-creator-storage',
       partialize: (state) => ({
         profile: state.profile,
         isProfileComplete: state.isProfileComplete,
@@ -93,16 +93,16 @@ export function generateCreatorContext(profile: CreatorProfile, brief: ReelBrief
   const parts: string[] = [];
 
   if (profile.name) {
-    parts.push(`## PERFIL DEL CREADOR`);
-    parts.push(`- **Nombre**: ${profile.name}`);
-    parts.push(`- **Nicho**: ${profile.niche}`);
-    parts.push(`- **Voz/Tono**: ${profile.voice}`);
-    parts.push(`- **Audiencia objetivo**: ${profile.targetAudience}`);
+    parts.push(`## CREATOR PROFILE`);
+    parts.push(`- **Name**: ${profile.name}`);
+    parts.push(`- **Niche**: ${profile.niche}`);
+    parts.push(`- **Voice/Tone**: ${profile.voice}`);
+    parts.push(`- **Target audience**: ${profile.targetAudience}`);
     if (profile.uniqueAngle) {
-      parts.push(`- **Angulo unico**: ${profile.uniqueAngle}`);
+      parts.push(`- **Unique angle**: ${profile.uniqueAngle}`);
     }
     if (profile.symbols.length > 0) {
-      parts.push(`- **Simbolos visuales**: ${profile.symbols.join(', ')}`);
+      parts.push(`- **Visual symbols**: ${profile.symbols.join(', ')}`);
     }
     if (profile.hashtags.length > 0) {
       parts.push(`- **Hashtags**: ${profile.hashtags.join(' ')}`);
@@ -111,20 +111,20 @@ export function generateCreatorContext(profile: CreatorProfile, brief: ReelBrief
 
   if (brief) {
     parts.push('');
-    parts.push(`## BRIEF DEL REEL`);
-    if (brief.topic) parts.push(`- **Tema**: ${brief.topic}`);
+    parts.push(`## REEL BRIEF`);
+    if (brief.topic) parts.push(`- **Topic**: ${brief.topic}`);
     if (brief.goal) {
       const goalLabels = {
-        educate: 'Educar',
-        inspire: 'Inspirar',
-        entertain: 'Entretener',
-        sell: 'Vender',
+        educate: 'Educate',
+        inspire: 'Inspire',
+        entertain: 'Entertain',
+        sell: 'Sell',
       };
-      parts.push(`- **Objetivo**: ${goalLabels[brief.goal as keyof typeof goalLabels] || brief.goal}`);
+      parts.push(`- **Objective**: ${goalLabels[brief.goal as keyof typeof goalLabels] || brief.goal}`);
     }
-    if (brief.emotion) parts.push(`- **Emocion a generar**: ${brief.emotion}`);
-    if (brief.callToAction) parts.push(`- **CTA deseado**: ${brief.callToAction}`);
-    if (brief.additionalContext) parts.push(`- **Contexto adicional**: ${brief.additionalContext}`);
+    if (brief.emotion) parts.push(`- **Emotion to generate**: ${brief.emotion}`);
+    if (brief.callToAction) parts.push(`- **Desired CTA**: ${brief.callToAction}`);
+    if (brief.additionalContext) parts.push(`- **Additional context**: ${brief.additionalContext}`);
   }
 
   return parts.join('\n');

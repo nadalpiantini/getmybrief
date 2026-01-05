@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Influencer Assistant",
+  "name": "GetMyBrief",
   "version": "1.0.0",
-  "description": "Tu asistente personal de creacion de contenido - Sistema Nadal",
+  "description": "AI-powered reel script generator - GetMyBrief",
   "permissions": ["storage", "identity", "activeTab"],
   "host_permissions": [
     "https://api.deepseek.com/*",
@@ -39,7 +39,7 @@
         "default": "Ctrl+Shift+I",
         "mac": "Command+Shift+I"
       },
-      "description": "Open Influencer Assistant"
+      "description": "Open GetMyBrief"
     }
   }
 }

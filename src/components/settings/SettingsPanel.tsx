@@ -21,7 +21,7 @@ export function SettingsPanel() {
 
   const handleValidateApiKey = async () => {
     if (!apiKeyInput.trim()) {
-      toast.error('Ingresa una API key');
+      toast.error('Enter an API key');
       return;
     }
 
@@ -32,13 +32,13 @@ export function SettingsPanel() {
 
       if (isValid) {
         setApiKey(apiKeyInput);
-        toast.success('API key valida y guardada');
+        toast.success('API key valid and saved');
       } else {
-        toast.error('API key invalida');
+        toast.error('Invalid API key');
       }
     } catch (error) {
       setIsApiKeyValid(false);
-      toast.error('Error al validar API key');
+      toast.error('Error validating API key');
     } finally {
       setIsValidating(false);
     }
@@ -47,7 +47,7 @@ export function SettingsPanel() {
   const handleSaveFolderId = () => {
     if (folderIdInput.trim()) {
       setDriveFolderId(folderIdInput);
-      toast.success('Folder ID guardado');
+      toast.success('Folder ID saved');
     }
   };
 
@@ -57,7 +57,7 @@ export function SettingsPanel() {
       if (typeof chrome !== 'undefined' && chrome.identity) {
         chrome.identity.getAuthToken({ interactive: true }, (result) => {
           if (chrome.runtime.lastError) {
-            toast.error('Error al conectar con Google');
+            toast.error('Error connecting to Google');
             console.error(chrome.runtime.lastError);
             return;
           }
@@ -65,14 +65,14 @@ export function SettingsPanel() {
           const token = typeof result === 'string' ? result : result?.token;
           if (token) {
             useSettingsStore.getState().setGoogleTokens(token);
-            toast.success('Conectado con Google Drive');
+            toast.success('Connected to Google Drive');
           }
         });
       } else {
-        toast.error('Chrome identity API no disponible. Carga la extension en Chrome.');
+        toast.error('Chrome identity API not available. Load the extension in Chrome.');
       }
     } catch (error) {
-      toast.error('Error al conectar con Google');
+      toast.error('Error connecting to Google');
     }
   };
 
@@ -84,8 +84,8 @@ export function SettingsPanel() {
           <Settings className="w-4 h-4 text-gray-400" />
         </div>
         <div>
-          <h2 className="font-semibold text-white">Ajustes</h2>
-          <p className="text-xs text-gray-500">Configura tus integraciones</p>
+          <h2 className="font-semibold text-white">Settings</h2>
+          <p className="text-xs text-gray-500">Configure your integrations</p>
         </div>
       </div>
 
@@ -111,7 +111,7 @@ export function SettingsPanel() {
               setIsApiKeyValid(null);
             }}
             placeholder="sk-..."
-            helperText="Tu API key de DeepSeek para generar contenido"
+            helperText="Your DeepSeek API key to generate content"
           />
 
           <div className="flex gap-2 mt-3">
@@ -121,7 +121,7 @@ export function SettingsPanel() {
               isLoading={isValidating}
               className="flex-1"
             >
-              Validar y Guardar
+              Validate & Save
             </Button>
             <Button
               variant="ghost"
@@ -139,7 +139,7 @@ export function SettingsPanel() {
             <FolderOpen className="w-4 h-4 text-accent" />
             <h3 className="font-medium text-white">Google Drive</h3>
             {isGoogleConnected && (
-              <span className="text-xs text-success ml-auto">Conectado</span>
+              <span className="text-xs text-success ml-auto">Connected</span>
             )}
           </div>
 
@@ -147,7 +147,7 @@ export function SettingsPanel() {
             value={folderIdInput}
             onChange={(e) => setFolderIdInput(e.target.value)}
             placeholder="1hC1B2heWUyfBHQPPRnbcdeZ9tGzict1T"
-            helperText="ID de tu carpeta 'Influencer' en Drive"
+            helperText="ID of your 'GetMyBrief' folder in Drive"
           />
 
           <div className="flex gap-2 mt-3">
@@ -157,7 +157,7 @@ export function SettingsPanel() {
               onClick={handleSaveFolderId}
               className="flex-1"
             >
-              Guardar Folder ID
+              Save Folder ID
             </Button>
             <Button
               variant={isGoogleConnected ? 'ghost' : 'primary'}
@@ -165,31 +165,30 @@ export function SettingsPanel() {
               onClick={handleConnectGoogle}
               className="flex-1"
             >
-              {isGoogleConnected ? 'Reconectar' : 'Conectar Google'}
+              {isGoogleConnected ? 'Reconnect' : 'Connect Google'}
             </Button>
           </div>
         </Card>
 
         {/* Info */}
         <Card className="bg-primary/5 border-primary/20">
-          <h3 className="font-medium text-primary mb-2">Sistema Nadal</h3>
+          <h3 className="font-medium text-primary mb-2">GetMyBrief</h3>
           <p className="text-xs text-gray-400">
-            Esta extension usa DeepSeek AI para generar guiones de reels
-            basados en la metodologia del Sistema Nadal: hooks poderosos,
-            estructura de 5 tomas, y CTAs emocionales.
+            This extension uses DeepSeek AI to generate reel scripts
+            with powerful hooks, 5-shot structure, and emotional CTAs.
           </p>
         </Card>
 
         {/* Keyboard shortcuts */}
         <Card>
-          <h3 className="font-medium text-white mb-3">Atajos de teclado</h3>
+          <h3 className="font-medium text-white mb-3">Keyboard Shortcuts</h3>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-400">Enviar mensaje</span>
+              <span className="text-gray-400">Send message</span>
               <kbd className="px-2 py-0.5 bg-surface-hover rounded text-xs">Cmd + Enter</kbd>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-400">Abrir extension</span>
+              <span className="text-gray-400">Open extension</span>
               <kbd className="px-2 py-0.5 bg-surface-hover rounded text-xs">Cmd + Shift + I</kbd>
             </div>
           </div>

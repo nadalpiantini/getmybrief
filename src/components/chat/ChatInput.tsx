@@ -86,7 +86,7 @@ export function ChatInput({ onSend, isLoading = false, disabled = false }: ChatI
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Describe tu idea de reel..."
+            placeholder="Describe your reel idea..."
             disabled={disabled || isLoading}
             rows={1}
             className={cn(

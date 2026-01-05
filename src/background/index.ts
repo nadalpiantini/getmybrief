@@ -1,13 +1,13 @@
-// Background service worker for Influencer Assistant Chrome Extension
+// Background service worker for GetMyBrief Chrome Extension
 
 // Handle extension installation
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === 'install') {
-    console.log('Influencer Assistant installed');
+    console.log('GetMyBrief installed');
 
     // Set default settings
     chrome.storage.local.set({
-      'influencer-settings-storage': {
+      'getmybrief-settings-storage': {
         state: {
           deepseekApiKey: '',
           driveFolderId: '1hC1B2heWUyfBHQPPRnbcdeZ9tGzict1T',
@@ -62,4 +62,4 @@ chrome.commands?.onCommand.addListener((command) => {
 });
 
 // Log service worker activation
-console.log('Influencer Assistant service worker activated');
+console.log('GetMyBrief service worker activated');

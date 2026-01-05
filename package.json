@@ -1,7 +1,7 @@
 {
-  "name": "influencer-assistant",
+  "name": "getmybrief",
   "version": "1.0.0",
-  "description": "Tu asistente personal de creacion de contenido - Sistema Nadal",
+  "description": "AI-powered reel script generator - GetMyBrief",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,11 +11,11 @@
   },
   "keywords": [
     "chrome-extension",
-    "influencer",
+    "getmybrief",
     "content-creation",
     "deepseek"
   ],
-  "author": "Sistema Nadal",
+  "author": "GetMyBrief",
   "license": "MIT",
   "dependencies": {
     "@tanstack/react-query": "^5.90.16",

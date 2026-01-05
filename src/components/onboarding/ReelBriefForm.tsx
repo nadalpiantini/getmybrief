@@ -4,21 +4,21 @@ import { useCreatorStore, type ReelBrief } from '@/lib/stores/creator-store';
 import { FileText, Target, Heart, MessageSquare, X, Zap } from 'lucide-react';
 
 const GOAL_OPTIONS = [
-  { value: 'educate', label: 'Educar', icon: '📚', desc: 'Ensenar algo nuevo' },
-  { value: 'inspire', label: 'Inspirar', icon: '🔥', desc: 'Motivar a la accion' },
-  { value: 'entertain', label: 'Entretener', icon: '😄', desc: 'Enganchar y divertir' },
-  { value: 'sell', label: 'Vender', icon: '💰', desc: 'Promover algo' },
+  { value: 'educate', label: 'Educate', icon: '📚', desc: 'Teach something new' },
+  { value: 'inspire', label: 'Inspire', icon: '🔥', desc: 'Motivate to action' },
+  { value: 'entertain', label: 'Entertain', icon: '😄', desc: 'Engage and amuse' },
+  { value: 'sell', label: 'Sell', icon: '💰', desc: 'Promote something' },
 ] as const;
 
 const EMOTION_SUGGESTIONS = [
-  'Motivacion',
-  'Curiosidad',
-  'Urgencia',
-  'Identificacion',
-  'Sorpresa',
-  'Confianza',
+  'Motivation',
+  'Curiosity',
+  'Urgency',
+  'Identification',
+  'Surprise',
+  'Trust',
   'FOMO',
-  'Aspiracion',
+  'Aspiration',
 ];
 
 interface ReelBriefFormProps {
@@ -55,8 +55,8 @@ export function ReelBriefForm({ onSubmit, onSkip }: ReelBriefFormProps) {
             <FileText className="w-4 h-4 text-primary" />
           </div>
           <div>
-            <h2 className="font-semibold text-white">Brief del Reel</h2>
-            <p className="text-xs text-gray-500">Define el contexto para generar mejor</p>
+            <h2 className="font-semibold text-white">Reel Brief</h2>
+            <p className="text-xs text-gray-500">Define context for better generation</p>
           </div>
         </div>
         <button
@@ -72,10 +72,10 @@ export function ReelBriefForm({ onSubmit, onSkip }: ReelBriefFormProps) {
         {/* Topic */}
         <div>
           <Input
-            label="Tema o idea principal"
+            label="Main topic or idea"
             value={brief.topic}
             onChange={(e) => updateField('topic', e.target.value)}
-            placeholder="De que va a tratar este reel?"
+            placeholder="What is this reel about?"
           />
         </div>
 
@@ -83,7 +83,7 @@ export function ReelBriefForm({ onSubmit, onSkip }: ReelBriefFormProps) {
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-2">
             <Target className="w-4 h-4 inline mr-2" />
-            Objetivo del reel
+            Reel objective
           </label>
           <div className="grid grid-cols-2 gap-2">
             {GOAL_OPTIONS.map((option) => (
@@ -110,7 +110,7 @@ export function ReelBriefForm({ onSubmit, onSkip }: ReelBriefFormProps) {
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-2">
             <Heart className="w-4 h-4 inline mr-2" />
-            Emocion a generar
+            Emotion to generate
           </label>
           <div className="flex flex-wrap gap-2 mb-2">
             {EMOTION_SUGGESTIONS.map((emotion) => (
@@ -130,29 +130,29 @@ export function ReelBriefForm({ onSubmit, onSkip }: ReelBriefFormProps) {
           <Input
             value={brief.emotion}
             onChange={(e) => updateField('emotion', e.target.value)}
-            placeholder="O escribe la emocion..."
+            placeholder="Or type the emotion..."
           />
         </div>
 
         {/* CTA */}
         <Input
-          label="Call to Action deseado"
+          label="Desired Call to Action"
           value={brief.callToAction}
           onChange={(e) => updateField('callToAction', e.target.value)}
-          placeholder="Que quieres que haga la audiencia?"
-          helperText="Ej: Que guarden, comenten, visiten tu bio..."
+          placeholder="What do you want the audience to do?"
+          helperText="Ex: Save it, comment, visit your bio..."
         />
 
         {/* Additional Context */}
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-2">
             <MessageSquare className="w-4 h-4 inline mr-2" />
-            Contexto adicional (opcional)
+            Additional context (optional)
           </label>
           <textarea
             value={brief.additionalContext}
             onChange={(e) => updateField('additionalContext', e.target.value)}
-            placeholder="Algo mas que deba saber? Referencias, estilo especifico, tendencias..."
+            placeholder="Anything else I should know? References, specific style, trends..."
             rows={3}
             className="w-full px-3 py-2 bg-surface border border-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none text-sm"
           />
@@ -161,7 +161,7 @@ export function ReelBriefForm({ onSubmit, onSkip }: ReelBriefFormProps) {
         {/* Profile Preview */}
         {profile.name && (
           <Card className="bg-surface/50">
-            <p className="text-xs text-gray-400 mb-2">Generando para:</p>
+            <p className="text-xs text-gray-400 mb-2">Generating for:</p>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
                 {profile.name.charAt(0).toUpperCase()}
@@ -178,11 +178,11 @@ export function ReelBriefForm({ onSubmit, onSkip }: ReelBriefFormProps) {
       {/* Footer */}
       <div className="p-4 border-t border-border flex gap-3">
         <Button variant="ghost" onClick={onSkip} className="flex-1">
-          Saltar
+          Skip
         </Button>
         <Button onClick={handleSubmit} disabled={!isValid} className="flex-1">
           <Zap className="w-4 h-4 mr-2" />
-          Generar con brief
+          Generate with brief
         </Button>
       </div>
     </div>

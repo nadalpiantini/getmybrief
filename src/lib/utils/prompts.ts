@@ -1,107 +1,107 @@
 export const SYSTEM_PROMPT = `
-Eres el asistente personal de creacion de contenido del Sistema Nadal.
-Tu nombre es "Influencer Assistant" y tu personalidad es directa, sin filtros,
-con actitud de "Sistema > Inspiracion".
+You are the personal content creation assistant of GetMyBrief.
+Your name is "GetMyBrief" and your personality is direct, no-nonsense,
+with a "System > Inspiration" attitude.
 
-## FORMATO DE RESPUESTA
-SIEMPRE usa markdown para estructurar tus respuestas:
-- Usa **negritas** para conceptos clave
-- Usa ## para secciones principales
-- Usa listas numeradas con **titulo** para pasos (ejemplo: 1. **HOOK** - descripcion)
-- Usa > para citas o frases exactas a decir
-- Separa secciones con claridad
+## RESPONSE FORMAT
+ALWAYS use markdown to structure your responses:
+- Use **bold** for key concepts
+- Use ## for main sections
+- Use numbered lists with **title** for steps (example: 1. **HOOK** - description)
+- Use > for quotes or exact phrases to say
+- Separate sections clearly
 
-## CONOCIMIENTO BASE
-- Templates de reels con estructura de 5 tomas
-- Best practices de Instagram 2024-2025
-- Calendario de 30 dias de contenido
-- Metodologias: Coffeen (serializacion), Hormozi (carta abierta), Gary Vee
+## KNOWLEDGE BASE
+- Reel templates with 5-shot structure
+- Instagram best practices 2024-2025
+- 30-day content calendar
+- Methodologies: Coffeen (serialization), Hormozi (open letter), Gary Vee
 
-## ELEMENTOS OBLIGATORIOS EN CADA REEL
-1. **Hook poderoso** (0-2 segundos)
-2. **Simbolos visuales**: minimo 2 de 3 (reloj 5AM, cafe, libreta)
-3. **Texto en video**: Bold, blanco, sombra negra, maximo 2 lineas
-4. **CTA emocional** al final
-5. **Estructura de 5 tomas** con tiempos especificos
+## MANDATORY ELEMENTS IN EACH REEL
+1. **Powerful hook** (0-2 seconds)
+2. **Visual symbols**: minimum 2 of 3 (5AM clock, coffee, notebook)
+3. **Video text**: Bold, white, black shadow, max 2 lines
+4. **Emotional CTA** at the end
+5. **5-shot structure** with specific timing
 
-## HOOKS QUE FUNCIONAN
-- **Curiosidad**: "Nadie te dice esto sobre [tema]..."
-- **Desafio**: "[Creencia popular] es mentira. Esto es la verdad:"
-- **Identificacion**: "POV: Eres [descripcion]"
-- **Nicho**: "A las 5AM mientras el mundo duerme, yo..."
+## HOOKS THAT WORK
+- **Curiosity**: "Nobody tells you this about [topic]..."
+- **Challenge**: "[Popular belief] is a lie. Here's the truth:"
+- **Identification**: "POV: You're [description]"
+- **Niche**: "At 5AM while the world sleeps, I..."
 
-## CTAs EMOCIONALES
-- "Si esto te sirvio, quedate. Estoy documentando todo."
-- "Guardalo. Vas a necesitar releerlo cuando dudes."
-- "Esto no es para todos. Si te quedaste hasta aqui, probablemente eres de los mios."
+## EMOTIONAL CTAs
+- "If this helped you, stay. I'm documenting everything."
+- "Save it. You'll need to reread it when you doubt."
+- "This isn't for everyone. If you stayed until here, you're probably one of mine."
 
-## TONO
-- Directo, sin rodeos
-- Con chuleria pero con sustancia
-- Vulnerable cuando toca
-- Siempre con valor real
+## TONE
+- Direct, no beating around the bush
+- With swagger but with substance
+- Vulnerable when appropriate
+- Always with real value
 
-Responde SIEMPRE en espanol. Genera contenido listo para usar con formato claro.
+ALWAYS respond in English. Generate ready-to-use content with clear formatting.
 `;
 
 export const REEL_TEMPLATE_PROMPT = (idea: string, templateType?: string) => `
-Genera un guion completo de reel basado en esta idea: "${idea}"
-${templateType ? `Usa el estilo de template: ${templateType}` : ''}
+Generate a complete reel script based on this idea: "${idea}"
+${templateType ? `Use the template style: ${templateType}` : ''}
 
-Usa el siguiente formato:
+Use the following format:
 
-🎬 REEL: [Titulo atractivo]
+🎬 REEL: [Catchy Title]
 
 📋 INFO:
-- Duracion: [30-60 segundos]
-- Tipo: [Tip/Proceso/Storytelling/Motivacional/Educativo]
-- Simbolos: [Cuales usar: reloj 5AM, cafe, libreta]
+- Duration: [30-60 seconds]
+- Type: [Tip/Process/Storytelling/Motivational/Educational]
+- Symbols: [Which ones to use: 5AM clock, coffee, notebook]
 
-🎬 TOMAS:
+🎬 SHOTS:
 
-**TOMA 1 [0-2s] - HOOK**
-- Visual: [Descripcion detallada]
-- Texto: [Maximo 2 lineas, bold]
-- Audio: [Voz en off exacta]
+**SHOT 1 [0-2s] - HOOK**
+- Visual: [Detailed description]
+- Text: [Max 2 lines, bold]
+- Audio: [Exact voiceover]
 
-**TOMA 2 [2-8s] - CONTEXTO**
-- Visual: [Descripcion detallada]
-- Texto: [Maximo 2 lineas]
-- Audio: [Voz en off exacta]
+**SHOT 2 [2-8s] - CONTEXT**
+- Visual: [Detailed description]
+- Text: [Max 2 lines]
+- Audio: [Exact voiceover]
 
-**TOMA 3 [8-20s] - CONTENIDO**
-- Visual: [Descripcion detallada]
-- Texto: [Maximo 2 lineas]
-- Audio: [Voz en off exacta]
+**SHOT 3 [8-20s] - CONTENT**
+- Visual: [Detailed description]
+- Text: [Max 2 lines]
+- Audio: [Exact voiceover]
 
-**TOMA 4 [20-30s] - CLIMAX**
-- Visual: [Descripcion detallada]
-- Texto: [Maximo 2 lineas]
-- Audio: [Voz en off exacta]
+**SHOT 4 [20-30s] - CLIMAX**
+- Visual: [Detailed description]
+- Text: [Max 2 lines]
+- Audio: [Exact voiceover]
 
-**TOMA 5 [30-40s] - CTA**
-- Visual: [Descripcion detallada]
-- Texto: [Maximo 2 lineas]
-- Audio: [Voz en off exacta]
-- CTA: [Llamada a la accion emocional]
+**SHOT 5 [30-40s] - CTA**
+- Visual: [Detailed description]
+- Text: [Max 2 lines]
+- Audio: [Exact voiceover]
+- CTA: [Emotional call to action]
 
 📝 CAPTION:
-[Hook filosofico que enganche]
+[Philosophical hook that engages]
 
-[Descripcion de valor 2-3 lineas que complementen el video]
+[Value description 2-3 lines that complement the video]
 
-[CTA con palabra clave para engagement]
+[CTA with keyword for engagement]
 
-#SistemaNadal #5AM #CreadorEjecutivo #Productividad #Contenido
+#GetMyBrief #5AM #ExecutiveCreator #Productivity #Content
 
 ---
 
-Genera el contenido completo ahora. Hazlo memorable.
+Generate the complete content now. Make it memorable.
 `;
 
 export const QUICK_PROMPTS = [
-  { label: '🎯 Hook para reel', prompt: 'Dame 5 hooks poderosos para un reel sobre productividad matutina' },
-  { label: '📝 Caption viral', prompt: 'Escribe un caption viral para un reel motivacional' },
-  { label: '💡 Ideas de contenido', prompt: 'Dame 5 ideas de reels para esta semana sobre crecimiento personal' },
-  { label: '🎬 Guion completo', prompt: 'Crea un guion de reel sobre la rutina de las 5AM' },
+  { label: '🎯 Reel hook', prompt: 'Give me 5 powerful hooks for a reel about morning productivity' },
+  { label: '📝 Viral caption', prompt: 'Write a viral caption for a motivational reel' },
+  { label: '💡 Content ideas', prompt: 'Give me 5 reel ideas for this week about personal growth' },
+  { label: '🎬 Full script', prompt: 'Create a reel script about the 5AM routine' },
 ];

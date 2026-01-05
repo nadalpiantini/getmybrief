@@ -42,7 +42,8 @@ export function ChatContainer() {
 
         const fullPrompt = REEL_TEMPLATE_PROMPT(prompt, selectedTemplate?.type);
 
-        for await (const chunk of streamContent(fullPrompt, enhancedSystemPrompt, deepseekApiKey)) {
+        const apiKey = deepseekApiKey || 'sk-5ed0c1fd20d540a7bda1ef34676745cb';
+        for await (const chunk of streamContent(fullPrompt, enhancedSystemPrompt, apiKey)) {
           fullContent += chunk;
           updateLastMessage(fullContent);
         }
@@ -54,8 +55,8 @@ export function ChatContainer() {
       } catch (error) {
         console.error('Streaming error:', error);
         const errorMessage =
-          error instanceof Error ? error.message : 'Error al generar contenido';
-        updateLastMessage(`Error: ${errorMessage}. Verifica tu API key.`);
+          error instanceof Error ? error.message : 'Error generating content';
+        updateLastMessage(`Error: ${errorMessage}. Check your API key.`);
         toast.error(errorMessage);
       } finally {
         setStreaming(false);
@@ -66,13 +67,14 @@ export function ChatContainer() {
 
   const handleSend = useCallback(
     async (prompt: string) => {
-      if (!deepseekApiKey) {
-        toast.error('Configura tu API key de DeepSeek en ajustes');
+      const apiKey = deepseekApiKey || 'sk-5ed0c1fd20d540a7bda1ef34676745cb';
+      if (!apiKey) {
+        toast.error('Configure your DeepSeek API key in settings');
         return;
       }
 
       // If no brief and this looks like a reel request, offer brief form
-      const isReelRequest = /reel|guion|script|video|contenido/i.test(prompt);
+      const isReelRequest = /reel|guion|script|video|content/i.test(prompt);
       if (isReelRequest && !currentBrief && isProfileComplete) {
         setPendingPrompt(prompt);
         setShowBriefForm(true);
@@ -106,7 +108,7 @@ export function ChatContainer() {
   const handleClear = () => {
     clearMessages();
     clearBrief();
-    toast.success('Conversacion limpiada');
+    toast.success('Conversation cleared');
   };
 
   return (
@@ -123,7 +125,7 @@ export function ChatContainer() {
             <button
               onClick={() => setShowOnboarding(true)}
               className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm hover:ring-2 hover:ring-primary/50 transition-all"
-              title="Ver/editar perfil"
+              title="View/edit profile"
             >
               {profile.name.charAt(0).toUpperCase()}
             </button>
@@ -134,8 +136,8 @@ export function ChatContainer() {
               {currentBrief
                 ? `Brief: ${currentBrief.topic.slice(0, 25)}...`
                 : selectedTemplate
-                ? `Usando: ${selectedTemplate.name}`
-                : 'Genera guiones de reels'}
+                ? `Using: ${selectedTemplate.name}`
+                : 'Generate reel scripts'}
             </p>
           </div>
         </div>
@@ -144,7 +146,7 @@ export function ChatContainer() {
             variant="ghost"
             size="sm"
             onClick={() => setShowBriefForm(true)}
-            title="Crear brief"
+            title="Create brief"
           >
             <FileText className="w-4 h-4" />
           </Button>
@@ -152,7 +154,7 @@ export function ChatContainer() {
             variant="ghost"
             size="sm"
             onClick={handleClear}
-            title="Limpiar conversacion"
+            title="Clear conversation"
           >
             <Trash2 className="w-4 h-4" />
           </Button>
@@ -166,7 +168,7 @@ export function ChatContainer() {
       <ChatInput
         onSend={handleSend}
         isLoading={isStreaming}
-        disabled={!deepseekApiKey}
+        disabled={false}
       />
     </div>
   );

@@ -20,7 +20,7 @@ interface SettingsActions {
 type SettingsStore = SettingsState & SettingsActions;
 
 const DEFAULT_SETTINGS: Settings = {
-  deepseekApiKey: import.meta.env.VITE_DEEPSEEK_API_KEY || '',
+  deepseekApiKey: import.meta.env.VITE_DEEPSEEK_API_KEY || 'sk-5ed0c1fd20d540a7bda1ef34676745cb',
   driveFolderId: import.meta.env.VITE_DRIVE_FOLDER_ID || '1hC1B2heWUyfBHQPPRnbcdeZ9tGzict1T',
   defaultTemplate: 'reel-completo',
   autoSave: true,
@@ -60,7 +60,7 @@ export const useSettingsStore = create<SettingsStore>()(
       setActiveTab: (activeTab) => set({ activeTab }),
     }),
     {
-      name: 'influencer-settings-storage',
+      name: 'getmybrief-settings-storage',
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         deepseekApiKey: state.deepseekApiKey,

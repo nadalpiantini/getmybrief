@@ -24,8 +24,8 @@ const queryClient = new QueryClient({
 const TABS: { id: Tab; label: string; icon: typeof MessageSquare }[] = [
   { id: 'chat', label: 'Chat', icon: MessageSquare },
   { id: 'templates', label: 'Templates', icon: Layout },
-  { id: 'calendar', label: 'Calendario', icon: Calendar },
-  { id: 'settings', label: 'Ajustes', icon: Settings },
+  { id: 'calendar', label: 'Calendar', icon: Calendar },
+  { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
 function AppContent() {
@@ -80,8 +80,8 @@ function AppContent() {
             <span className="text-white text-sm font-bold">IA</span>
           </div>
           <div>
-            <h1 className="text-sm font-bold text-white">Influencer Assistant</h1>
-            <p className="text-[10px] text-gray-500">Sistema {'>'} Inspiracion</p>
+            <h1 className="text-sm font-bold text-white">GetMyBrief</h1>
+            <p className="text-[10px] text-gray-500">System {'>'} Inspiration</p>
           </div>
         </div>
       </header>
