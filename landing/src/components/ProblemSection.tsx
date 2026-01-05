@@ -5,29 +5,29 @@ import { Brain, Calendar, Smartphone, ArrowUpRight } from 'lucide-react';
 const painPoints = [
   {
     icon: Brain,
-    title: 'Bloqueo Creativo',
-    description: 'Abres Instagram. Sabes que debes publicar. Pero las ideas simplemente... no llegan.',
+    title: 'Creative Block',
+    description: 'You open Instagram. You know you should post. But ideas just... don\'t come.',
     color: 'from-red-500/20 to-red-600/10',
     iconColor: 'text-red-400',
   },
   {
     icon: Calendar,
-    title: 'Inconsistencia',
-    description: 'Una semana publicas fuerte. La siguiente, silencio total. Tu audiencia te olvida.',
+    title: 'Inconsistency',
+    description: 'One week you post strong. The next, total silence. Your audience forgets you.',
     color: 'from-orange-500/20 to-orange-600/10',
     iconColor: 'text-orange-400',
   },
   {
     icon: Smartphone,
-    title: 'Hooks Débiles',
-    description: 'Te saltan en 0.5 segundos. Tu mensaje nunca llega a ser escuchado.',
+    title: 'Weak Hooks',
+    description: 'They scroll past in 0.5 seconds. Your message never gets heard.',
     color: 'from-yellow-500/20 to-yellow-600/10',
     iconColor: 'text-yellow-400',
   },
   {
     icon: ArrowUpRight,
-    title: 'CTAs Genéricos',
-    description: '"Link en bio" ya no funciona. Nadie hace clic. Nadie interactúa.',
+    title: 'Generic CTAs',
+    description: '"Link in bio" doesn\'t work anymore. No one clicks. No one engages.',
     color: 'from-pink-500/20 to-pink-600/10',
     iconColor: 'text-pink-400',
   },
@@ -40,10 +40,10 @@ export function ProblemSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            ¿Te suena familiar?
+            Sound familiar?
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Si publicas contenido, probablemente has sentido esto
+            If you create content, you've probably felt this
           </p>
         </div>
 
@@ -93,8 +93,8 @@ export function ProblemSection() {
         {/* Transition */}
         <div className="mt-16 text-center">
           <p className="text-xl sm:text-2xl font-medium text-white">
-            ¿Y si el contenido tuviera un{' '}
-            <span className="gradient-text-purple">sistema</span>?
+            What if content had a{' '}
+            <span className="gradient-text-purple">system</span>?
           </p>
           <div className="mt-6 flex justify-center">
             <svg

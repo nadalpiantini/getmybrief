@@ -21,10 +21,10 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-text-secondary hover:text-white transition-colors text-sm">
-              El Sistema
+              The System
             </a>
             <a href="#how-it-works" className="text-text-secondary hover:text-white transition-colors text-sm">
-              Cómo Funciona
+              How It Works
             </a>
             <a href="#faq" className="text-text-secondary hover:text-white transition-colors text-sm">
               FAQ
@@ -37,7 +37,7 @@ export default function Header() {
               href="#waitlist"
               className="px-5 py-2 text-sm bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium rounded-lg transition-all shadow-md hover:shadow-glow"
             >
-              Acceso Beta
+              Get Beta Access
             </a>
           </div>
 
@@ -59,14 +59,14 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-text-secondary hover:text-white transition-colors"
               >
-                El Sistema
+                The System
               </a>
               <a
                 href="#how-it-works"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-text-secondary hover:text-white transition-colors"
               >
-                Cómo Funciona
+                How It Works
               </a>
               <a
                 href="#faq"
@@ -81,7 +81,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-2 text-center bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium rounded-lg"
                 >
-                  Acceso Beta
+                  Get Beta Access
                 </a>
               </div>
             </div>

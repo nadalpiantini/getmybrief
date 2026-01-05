@@ -6,22 +6,22 @@ const steps = [
   {
     number: '01',
     icon: PenLine,
-    title: 'Escribe tu idea',
-    description: 'Abre la extensión de Chrome. Escribe un tema, pensamiento o idea en bruto.',
+    title: 'Write your idea',
+    description: 'Open the Chrome extension. Write a topic, thought, or raw idea.',
     visual: 'extension-input',
   },
   {
     number: '02',
     icon: Sparkles,
-    title: 'IA genera estructura',
-    description: 'DeepSeek AI crea un guión completo de 5 tomas con hooks, visuales y CTAs.',
+    title: 'AI generates structure',
+    description: 'DeepSeek AI creates a complete 5-shot script with hooks, visuals, and CTAs.',
     visual: 'ai-generating',
   },
   {
     number: '03',
     icon: Video,
-    title: 'Graba y publica',
-    description: 'Copia a tu app de notas. Graba. Publica. Crece.',
+    title: 'Film and post',
+    description: 'Copy to your notes app. Film. Post. Grow.',
     visual: 'phone-filming',
   },
 ];
@@ -33,14 +33,14 @@ export function HowItWorks() {
         {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-400 text-sm font-medium mb-4">
-            Cómo funciona
+            How It Works
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            De idea a guión en{' '}
-            <span className="gradient-text">3 pasos</span>
+            From idea to script in{' '}
+            <span className="gradient-text">3 steps</span>
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Sin bloqueos, sin excusas. Sistema probado.
+            No blocks, no excuses. Proven system.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export function HowItWorks() {
         <div className="mt-12 flex justify-center">
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-surface-1 border border-border-subtle rounded-full glow-sm">
             <span className="text-3xl font-bold gradient-text">~30s</span>
-            <span className="text-text-secondary">tiempo total</span>
+            <span className="text-text-secondary">total time</span>
           </div>
         </div>
       </div>

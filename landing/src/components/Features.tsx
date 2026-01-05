@@ -17,41 +17,41 @@ const shots = [
     color: 'from-primary-500 to-primary-600',
     bgColor: 'bg-primary-500/10',
     textColor: 'text-primary-400',
-    description: 'Detiene el scroll en 2 segundos',
-    example: '"El 90% de la gente hace esto mal..."',
+    description: 'Stop the scroll in 2 seconds',
+    example: '"90% of people get this wrong..."',
     timing: '0-2s',
   },
   {
     number: 2,
-    name: 'PROBLEMA',
+    name: 'PROBLEM',
     icon: AlertCircle,
     color: 'from-red-500 to-red-600',
     bgColor: 'bg-red-500/10',
     textColor: 'text-red-400',
-    description: 'Conecta con el dolor del viewer',
-    example: 'El problema real que tu audiencia enfrenta',
+    description: 'Connect with viewer pain',
+    example: 'The real problem your audience faces',
     timing: '2-8s',
   },
   {
     number: 3,
-    name: 'SOLUCIÓN',
+    name: 'SOLUTION',
     icon: Lightbulb,
     color: 'from-amber-500 to-amber-600',
     bgColor: 'bg-amber-500/10',
     textColor: 'text-amber-400',
-    description: 'Tu método o insight único',
-    example: 'El framework que cambió todo',
+    description: 'Your unique method or insight',
+    example: 'The framework that changed everything',
     timing: '8-18s',
   },
   {
     number: 4,
-    name: 'PRUEBA',
+    name: 'PROOF',
     icon: Trophy,
     color: 'from-emerald-500 to-emerald-600',
     bgColor: 'bg-emerald-500/10',
     textColor: 'text-emerald-400',
-    description: 'Credibilidad y resultados',
-    example: '"Con esto logré +300% engagement"',
+    description: 'Credibility and results',
+    example: '"This got me +300% engagement"',
     timing: '18-25s',
   },
   {
@@ -61,28 +61,28 @@ const shots = [
     color: 'from-pink-500 to-pink-600',
     bgColor: 'bg-pink-500/10',
     textColor: 'text-pink-400',
-    description: 'Acción emocional que convierte',
-    example: '"Guarda esto. Lo vas a necesitar."',
+    description: 'Emotional action that converts',
+    example: '"Save this. You\'ll need it."',
     timing: '25-30s',
   },
 ];
 
 const additionalFeatures = [
   {
-    title: 'Hooks Intercambiables',
-    description: '3 variantes de hook por cada guión. Curiosidad, desafío, identificación.',
+    title: 'Swappable Hooks',
+    description: '3 hook variants per script. Curiosity, challenge, identification.',
   },
   {
-    title: 'Visuales Sugeridos',
-    description: 'Cada toma incluye qué mostrar en pantalla. No más improvisar.',
+    title: 'Suggested Visuals',
+    description: 'Each shot includes what to show on screen. No more improvising.',
   },
   {
-    title: 'Voice-Over Exacto',
-    description: 'El texto preciso que decir. Ni una palabra de más.',
+    title: 'Exact Voice-Over',
+    description: 'The precise text to say. Not a word too many.',
   },
   {
-    title: 'CTAs por Objetivo',
-    description: 'Educar, inspirar, entretener o vender. CTA adaptado a tu meta.',
+    title: 'Goal-Based CTAs',
+    description: 'Educate, inspire, entertain, or sell. CTA tailored to your goal.',
   },
 ];
 
@@ -93,14 +93,14 @@ export default function Features() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-400 text-sm font-medium mb-4">
-            El Sistema
+            The System
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Estructura de <span className="gradient-text-purple">5 Tomas</span>
+            The <span className="gradient-text-purple">5-Shot</span> Structure
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            No es inspiración, es un <strong className="text-white">sistema probado</strong>.
-            Cada guión sigue la estructura que funciona para reels de alto impacto.
+            It's not inspiration, it's a <strong className="text-white">proven system</strong>.
+            Every script follows the structure that works for high-impact reels.
           </p>
         </div>
 
@@ -173,14 +173,14 @@ export default function Features() {
         <div className="flex justify-center mb-16">
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-surface-1 border border-border-subtle rounded-full">
             <span className="text-3xl font-bold gradient-text">~30s</span>
-            <span className="text-text-secondary">de reel estructurado</span>
+            <span className="text-text-secondary">structured reel</span>
           </div>
         </div>
 
         {/* Additional Features */}
         <div className="bg-surface-1 border border-border-subtle rounded-2xl p-8">
           <h3 className="text-xl font-semibold text-white text-center mb-8">
-            Cada guión incluye
+            Every script includes
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {additionalFeatures.map((feature, index) => (

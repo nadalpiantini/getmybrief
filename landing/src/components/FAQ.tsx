@@ -5,28 +5,28 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: '¿Esto es solo otra herramienta de IA para escribir?',
-    answer: 'No. GetMyBrief no es para blogs ni tweets. Está diseñado específicamente para guiones de video corto con una estructura probada de 5 tomas que impulsa engagement y conversiones.',
+    question: 'Is this just another AI writing tool?',
+    answer: 'No. GetMyBrief is not for blogs or tweets. It\'s specifically designed for short-form video scripts with a proven 5-shot structure that drives engagement and conversions.',
   },
   {
-    question: '¿Y si no me gusta lo que genera la IA?',
-    answer: 'Cada guión es un punto de partida. Puedes regenerar con diferentes hooks, ajustar el tono, o usar la estructura con tus propias palabras. El sistema se adapta a tu estilo.',
+    question: 'What if I don\'t like what the AI generates?',
+    answer: 'Every script is a starting point. You can regenerate with different hooks, adjust the tone, or use the structure with your own words. The system adapts to your style.',
   },
   {
-    question: '¿Tengo que instalar algo?',
-    answer: 'Es una extensión de Chrome. Un clic para instalar, funciona en cualquier pestaña del navegador. No necesitas crear cuenta durante la beta.',
+    question: 'Do I need to install anything?',
+    answer: 'It\'s a Chrome extension. One click to install, works on any browser tab. No account required during the beta.',
   },
   {
-    question: '¿Cómo se usan mis datos?',
-    answer: 'Tus guiones son procesados por DeepSeek AI y no se almacenan en nuestros servidores. Solo guardamos tu email si te unes a la lista de espera.',
+    question: 'How is my data used?',
+    answer: 'Your scripts are processed by DeepSeek AI and are not stored on our servers. We only save your email if you join the waitlist.',
   },
   {
-    question: '¿Cuándo lanza GetMyBrief?',
-    answer: 'Estamos en beta activa. Únete a la lista de espera para acceso temprano y ayudarnos a moldear el producto.',
+    question: 'When does GetMyBrief launch?',
+    answer: 'We\'re in active beta. Join the waitlist for early access and help us shape the product.',
   },
   {
-    question: '¿Es gratis?',
-    answer: 'La beta es gratuita. Anunciaremos precios antes del lanzamiento. Los miembros de la lista de espera recibirán una oferta especial de fundadores.',
+    question: 'Is it free?',
+    answer: 'The beta is free. We\'ll announce pricing before launch. Waitlist members will receive a special founders\' offer.',
   },
 ];
 
@@ -46,10 +46,10 @@ export function FAQ() {
             FAQ
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Preguntas frecuentes
+            Frequently Asked Questions
           </h2>
           <p className="text-lg text-text-secondary">
-            Todo lo que necesitas saber
+            Everything you need to know
           </p>
         </div>
 
@@ -93,12 +93,12 @@ export function FAQ() {
         {/* Contact CTA */}
         <div className="mt-12 text-center">
           <p className="text-text-secondary">
-            ¿Tienes otra pregunta?{' '}
+            Have another question?{' '}
             <a
               href="mailto:hello@getmybrief.com"
               className="text-primary-400 hover:text-primary-300 transition-colors"
             >
-              Escríbenos
+              Contact us
             </a>
           </p>
         </div>

@@ -6,20 +6,20 @@ const stats = [
   {
     value: 500,
     suffix: '+',
-    label: 'guiones generados',
-    description: 'en beta',
+    label: 'scripts generated',
+    description: 'in beta',
   },
   {
     value: 30,
     suffix: 's',
-    label: 'tiempo promedio',
-    description: 'por guión',
+    label: 'average time',
+    description: 'per script',
   },
   {
     value: 5,
     suffix: '',
-    label: 'tomas estructuradas',
-    description: 'en cada guión',
+    label: 'structured shots',
+    description: 'in every script',
   },
 ];
 
@@ -60,10 +60,10 @@ export function SocialProof() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-            Creado para creadores que van en serio
+            Built for creators who mean business
           </h2>
           <p className="text-text-secondary">
-            Sistema probado por creadores reales
+            Proven system tested by real creators
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export function SocialProof() {
               ))}
             </div>
             <span className="text-sm text-text-secondary">
-              +100 creadores en la lista de espera
+              +100 creators on the waitlist
             </span>
           </div>
         </div>

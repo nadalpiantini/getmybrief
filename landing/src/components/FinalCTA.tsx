@@ -17,7 +17,7 @@ export function FinalCTA() {
     e.preventDefault();
 
     if (!email || !email.includes('@')) {
-      setErrorMessage('Por favor ingresa un email válido');
+      setErrorMessage('Please enter a valid email');
       setStatus('error');
       return;
     }
@@ -32,9 +32,9 @@ export function FinalCTA() {
 
       if (error) {
         if (error.code === '23505') {
-          setErrorMessage('Este email ya está en la lista');
+          setErrorMessage('This email is already on the list');
         } else {
-          setErrorMessage('Algo salió mal. Intenta de nuevo.');
+          setErrorMessage('Something went wrong. Try again.');
         }
         setStatus('error');
         return;
@@ -43,7 +43,7 @@ export function FinalCTA() {
       setStatus('success');
       setEmail('');
     } catch {
-      setErrorMessage('Error de conexión. Intenta de nuevo.');
+      setErrorMessage('Connection error. Try again.');
       setStatus('error');
     }
   };
@@ -64,12 +64,12 @@ export function FinalCTA() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            ¿Listo para dejar de mirar{' '}
-            <span className="gradient-text-purple">la pantalla en blanco</span>?
+            Ready to stop staring at{' '}
+            <span className="gradient-text-purple">the blank screen</span>?
           </h2>
 
           <p className="text-lg sm:text-xl text-text-secondary max-w-xl mx-auto">
-            Únete a +100 creadores en la lista de espera para acceso temprano.
+            Join +100 creators on the waitlist for early access.
           </p>
         </div>
 
@@ -81,10 +81,10 @@ export function FinalCTA() {
                 <Check className="w-6 h-6 text-success" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">
-                ¡Estás en la lista!
+                You're on the list!
               </h3>
               <p className="text-text-secondary">
-                Te avisaremos cuando lancemos. Revisa tu email.
+                We'll let you know when we launch. Check your email.
               </p>
             </div>
           ) : (
@@ -97,7 +97,7 @@ export function FinalCTA() {
                     setEmail(e.target.value);
                     if (status === 'error') setStatus('idle');
                   }}
-                  placeholder="tu@email.com"
+                  placeholder="you@email.com"
                   className={`
                     flex-1 px-4 py-3.5 rounded-xl
                     bg-surface-1 border
@@ -126,7 +126,7 @@ export function FinalCTA() {
                     <Loader2 className="w-5 h-5 animate-spin" />
                   ) : (
                     <>
-                      Unirme
+                      Join
                       <ArrowRight className="w-5 h-5" />
                     </>
                   )}
@@ -145,15 +145,15 @@ export function FinalCTA() {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-text-muted">
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-success" />
-              Sin spam
+              No spam
             </span>
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-success" />
-              Solo actualizaciones de lanzamiento
+              Launch updates only
             </span>
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
-              Oferta de fundadores
+              Founders' offer
             </span>
           </div>
         </div>
@@ -161,7 +161,7 @@ export function FinalCTA() {
         {/* Urgency */}
         <div className="mt-10 text-center">
           <span className="inline-block px-4 py-2 bg-accent/10 border border-accent/30 rounded-full text-sm text-accent">
-            Beta limitada - Plazas contadas
+            Limited beta - Spots are limited
           </span>
         </div>
       </div>

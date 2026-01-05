@@ -23,7 +23,7 @@ export default function Footer() {
               FAQ
             </a>
             <a href="mailto:hello@getmybrief.com" className="hover:text-white transition-colors">
-              Contacto
+              Contact
             </a>
           </div>
 
