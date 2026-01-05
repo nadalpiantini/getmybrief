@@ -29,11 +29,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       'inline-flex items-center justify-center font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed rounded-lg';
 
     const variants = {
-      primary: 'bg-primary text-white hover:bg-primary-hover focus:ring-primary',
+      primary: 'bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 shadow-md hover:shadow-glow focus:ring-primary-500',
       secondary:
         'bg-surface text-white hover:bg-surface-hover border border-border focus:ring-border',
-      ghost: 'bg-transparent text-gray-400 hover:text-white hover:bg-surface focus:ring-border',
-      danger: 'bg-error text-white hover:bg-red-600 focus:ring-error',
+      ghost: 'bg-transparent text-text-tertiary hover:text-white hover:bg-surface focus:ring-border',
+      danger: 'bg-error text-white hover:bg-error-600 focus:ring-error',
     };
 
     const sizes = {

@@ -47,28 +47,54 @@ if (!existsSync(iconsDir)) {
   mkdirSync(iconsDir, { recursive: true });
 }
 
-// Simple SVG-based PNG creation (base64 encoded minimal PNGs)
-// These are placeholder icons - replace with actual design later
-const createPlaceholderIcon = (size) => {
-  // Create a simple SVG and save as placeholder
+// GetMyBrief Icon - Purple gradient with lightning bolt
+const createGetMyBriefIcon = (size) => {
+  // Lightning bolt path scaled to the icon size
+  const scale = size / 128;
+  const strokeWidth = Math.max(2, 3 * scale);
+
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
     </linearGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f0f0f0"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="${2 * scale}" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect width="${size}" height="${size}" rx="${size * 0.15}" fill="url(#grad)"/>
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
-        font-family="Arial, sans-serif" font-weight="bold" fill="white"
-        font-size="${size * 0.5}">IA</text>
+
+  <!-- Background rounded square -->
+  <rect width="${size}" height="${size}" rx="${size * 0.18}" fill="url(#bgGrad)"/>
+
+  <!-- Lightning bolt icon (centered, Zap-style) -->
+  <g transform="translate(${size * 0.22}, ${size * 0.15}) scale(${scale * 0.9})" filter="url(#glow)">
+    <path
+      d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+      fill="url(#boltGrad)"
+      stroke="white"
+      stroke-width="${strokeWidth}"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      transform="scale(${70 / 24})"
+    />
+  </g>
 </svg>`;
   return svg;
 };
 
 // Write SVG icons (Chrome accepts SVG in manifest v3)
 [16, 48, 128].forEach(size => {
-  const svg = createPlaceholderIcon(size);
+  const svg = createGetMyBriefIcon(size);
   writeFileSync(join(iconsDir, `icon${size}.svg`), svg);
 });
 
