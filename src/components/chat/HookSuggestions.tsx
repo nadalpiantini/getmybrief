@@ -31,7 +31,7 @@ export function HookSuggestions({
         <div className="flex items-center gap-2">
           <Lightbulb className="w-4 h-4 text-accent" />
           <span className="text-sm font-medium text-white">
-            Alternativas de Hook
+            Hook Alternatives
           </span>
         </div>
         <Button
@@ -41,7 +41,7 @@ export function HookSuggestions({
           disabled={isLoading}
           leftIcon={<RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />}
         >
-          Más
+          More
         </Button>
       </div>
 
@@ -93,7 +93,7 @@ export function HookSuggestions({
 
       {/* Tip */}
       <p className="mt-3 text-xs text-text-muted text-center">
-        Selecciona un hook para regenerar el guión con él
+        Select a hook to regenerate the script
       </p>
     </div>
   );
@@ -101,9 +101,9 @@ export function HookSuggestions({
 
 function getHookType(index: number): { label: string; bgClass: string } {
   const types = [
-    { label: 'Curiosidad', bgClass: 'bg-primary-500/20 text-primary-400' },
-    { label: 'Desafío', bgClass: 'bg-accent/20 text-accent' },
-    { label: 'Identificación', bgClass: 'bg-success/20 text-success' },
+    { label: 'Curiosity', bgClass: 'bg-primary-500/20 text-primary-400' },
+    { label: 'Challenge', bgClass: 'bg-accent/20 text-accent' },
+    { label: 'Identification', bgClass: 'bg-success/20 text-success' },
   ];
   return types[index % types.length];
 }

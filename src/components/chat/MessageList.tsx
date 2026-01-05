@@ -20,11 +20,11 @@ export function MessageList() {
           <MessageCircle className="w-8 h-8 text-accent" />
         </div>
         <h3 className="text-lg font-semibold text-white mb-2">
-          Que reel creamos hoy?
+          What reel are we creating today?
         </h3>
         <p className="text-sm text-gray-400 max-w-xs">
-          Cuentame tu idea y te armo el guion completo con estructura de 5 tomas,
-          hooks poderosos y CTAs emocionales.
+          Tell me your idea and I'll build the complete script with 5-shot structure,
+          powerful hooks and emotional CTAs.
         </p>
       </div>
     );

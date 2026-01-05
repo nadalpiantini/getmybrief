@@ -15,39 +15,39 @@ export interface CTASuggestion {
 
 export const CTA_BY_GOAL: Record<ContentGoal, CTASuggestion[]> = {
   educate: [
-    { text: 'Guarda este reel para cuando lo necesites', category: 'save', intensity: 'soft' },
-    { text: 'Comparte con alguien que necesita saber esto', category: 'share', intensity: 'medium' },
-    { text: 'Sígueme para más tips como este', category: 'follow', intensity: 'medium' },
-    { text: '¿Qué tema quieres que explique? Déjalo en comentarios', category: 'engagement', intensity: 'soft' },
-    { text: 'Link en bio para la guía completa', category: 'action', intensity: 'strong' },
+    { text: 'Save this reel for when you need it', category: 'save', intensity: 'soft' },
+    { text: 'Share with someone who needs to know this', category: 'share', intensity: 'medium' },
+    { text: 'Follow me for more tips like this', category: 'follow', intensity: 'medium' },
+    { text: 'What topic should I explain next? Drop it in the comments', category: 'engagement', intensity: 'soft' },
+    { text: 'Link in bio for the full guide', category: 'action', intensity: 'strong' },
   ],
   inspire: [
-    { text: 'Si esto te resonó, sígueme para más', category: 'follow', intensity: 'soft' },
-    { text: 'Etiqueta a alguien que necesita escuchar esto', category: 'share', intensity: 'medium' },
-    { text: 'Guárdalo para los días difíciles', category: 'save', intensity: 'soft' },
-    { text: 'Escribe "YO" si te identificas', category: 'engagement', intensity: 'medium' },
-    { text: 'Comparte tu historia en comentarios', category: 'engagement', intensity: 'soft' },
+    { text: 'If this resonated, follow me for more', category: 'follow', intensity: 'soft' },
+    { text: 'Tag someone who needs to hear this', category: 'share', intensity: 'medium' },
+    { text: 'Save it for the tough days', category: 'save', intensity: 'soft' },
+    { text: 'Comment "ME" if you relate', category: 'engagement', intensity: 'medium' },
+    { text: 'Share your story in the comments', category: 'engagement', intensity: 'soft' },
   ],
   entertain: [
-    { text: 'Sígueme para más contenido así', category: 'follow', intensity: 'soft' },
-    { text: 'Etiqueta a tu amigo que hace esto', category: 'share', intensity: 'medium' },
-    { text: 'Comenta tu reacción', category: 'engagement', intensity: 'soft' },
-    { text: 'Dale like si te hizo reír', category: 'engagement', intensity: 'soft' },
-    { text: 'Mira mi último reel si quieres más', category: 'action', intensity: 'medium' },
+    { text: 'Follow me for more content like this', category: 'follow', intensity: 'soft' },
+    { text: 'Tag your friend who does this', category: 'share', intensity: 'medium' },
+    { text: 'Drop your reaction in the comments', category: 'engagement', intensity: 'soft' },
+    { text: 'Like if this made you laugh', category: 'engagement', intensity: 'soft' },
+    { text: 'Check my latest reel for more', category: 'action', intensity: 'medium' },
   ],
   sell: [
-    { text: 'Link en bio para más info', category: 'action', intensity: 'medium' },
-    { text: 'Escríbeme "INFO" por DM', category: 'action', intensity: 'strong' },
-    { text: 'Últimas plazas disponibles', category: 'action', intensity: 'strong' },
-    { text: 'Guárdalo y toma acción cuando estés listo', category: 'save', intensity: 'soft' },
-    { text: 'Comenta "QUIERO" para recibir el link', category: 'action', intensity: 'strong' },
+    { text: 'Link in bio for more info', category: 'action', intensity: 'medium' },
+    { text: 'DM me "INFO" to learn more', category: 'action', intensity: 'strong' },
+    { text: 'Limited spots available', category: 'action', intensity: 'strong' },
+    { text: 'Save it and take action when ready', category: 'save', intensity: 'soft' },
+    { text: 'Comment "WANT" to get the link', category: 'action', intensity: 'strong' },
   ],
   general: [
-    { text: 'Sígueme para más contenido', category: 'follow', intensity: 'soft' },
-    { text: 'Guarda para después', category: 'save', intensity: 'soft' },
-    { text: '¿Qué opinas? Déjalo en comentarios', category: 'engagement', intensity: 'soft' },
-    { text: 'Comparte si te gustó', category: 'share', intensity: 'soft' },
-    { text: 'Más contenido en mi perfil', category: 'action', intensity: 'soft' },
+    { text: 'Follow me for more content', category: 'follow', intensity: 'soft' },
+    { text: 'Save for later', category: 'save', intensity: 'soft' },
+    { text: 'What do you think? Drop it in the comments', category: 'engagement', intensity: 'soft' },
+    { text: 'Share if you liked it', category: 'share', intensity: 'soft' },
+    { text: 'More content on my profile', category: 'action', intensity: 'soft' },
   ],
 };
 
@@ -102,16 +102,16 @@ export function formatCTA(cta: string, includeEmoji = true): string {
   };
 
   // Find matching category by keyword detection
-  if (cta.toLowerCase().includes('comenta') || cta.toLowerCase().includes('escribe')) {
+  if (cta.toLowerCase().includes('comment') || cta.toLowerCase().includes('drop')) {
     return `${categoryEmojis.engagement} ${cta}`;
   }
-  if (cta.toLowerCase().includes('sígueme') || cta.toLowerCase().includes('follow')) {
+  if (cta.toLowerCase().includes('follow')) {
     return `${categoryEmojis.follow} ${cta}`;
   }
-  if (cta.toLowerCase().includes('guarda') || cta.toLowerCase().includes('save')) {
+  if (cta.toLowerCase().includes('save')) {
     return `${categoryEmojis.save} ${cta}`;
   }
-  if (cta.toLowerCase().includes('comparte') || cta.toLowerCase().includes('etiqueta')) {
+  if (cta.toLowerCase().includes('share') || cta.toLowerCase().includes('tag')) {
     return `${categoryEmojis.share} ${cta}`;
   }
   if (cta.toLowerCase().includes('link') || cta.toLowerCase().includes('dm')) {
@@ -127,16 +127,16 @@ export function formatCTA(cta: string, includeEmoji = true): string {
 export function parseGoalFromText(text: string): ContentGoal {
   const lowered = text.toLowerCase();
 
-  if (lowered.includes('educar') || lowered.includes('enseñar') || lowered.includes('explicar')) {
+  if (lowered.includes('educate') || lowered.includes('teach') || lowered.includes('explain')) {
     return 'educate';
   }
-  if (lowered.includes('inspirar') || lowered.includes('motivar') || lowered.includes('conectar')) {
+  if (lowered.includes('inspire') || lowered.includes('motivate') || lowered.includes('connect')) {
     return 'inspire';
   }
-  if (lowered.includes('entretener') || lowered.includes('divertir') || lowered.includes('humor')) {
+  if (lowered.includes('entertain') || lowered.includes('fun') || lowered.includes('humor')) {
     return 'entertain';
   }
-  if (lowered.includes('vender') || lowered.includes('promocionar') || lowered.includes('lanzar')) {
+  if (lowered.includes('sell') || lowered.includes('promote') || lowered.includes('launch')) {
     return 'sell';
   }
 

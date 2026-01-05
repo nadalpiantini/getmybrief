@@ -10,6 +10,7 @@ import { useTemplatesStore } from '@/lib/stores/templates-store';
 import { ReelBriefForm } from '@/components/onboarding';
 import { Trash2, FileText } from 'lucide-react';
 import { Button } from '@/components/ui';
+import type { ScriptOptions } from './QuickOptionsBar';
 import toast from 'react-hot-toast';
 
 export function ChatContainer() {
@@ -66,7 +67,7 @@ export function ChatContainer() {
   );
 
   const handleSend = useCallback(
-    async (prompt: string) => {
+    async (prompt: string, _options?: ScriptOptions) => {
       const apiKey = deepseekApiKey || 'sk-5ed0c1fd20d540a7bda1ef34676745cb';
       if (!apiKey) {
         toast.error('Configure your DeepSeek API key in settings');

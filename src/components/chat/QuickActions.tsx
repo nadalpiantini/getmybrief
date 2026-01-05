@@ -36,10 +36,10 @@ export function QuickActions({
     try {
       await navigator.clipboard.writeText(scriptContent);
       setCopied(true);
-      toast.success('Guión copiado');
+      toast.success('Script copied');
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast.error('Error al copiar');
+      toast.error('Failed to copy');
     }
   };
 
@@ -55,28 +55,28 @@ export function QuickActions({
     {
       id: 'hook',
       icon: RefreshCw,
-      label: 'Nuevo Hook',
+      label: 'New Hook',
       onClick: () => handleAction('hook', onRegenerateHook),
       color: 'text-primary-400 hover:bg-primary-500/10',
     },
     {
       id: 'shorter',
       icon: Scissors,
-      label: 'Más Corto',
+      label: 'Shorter',
       onClick: () => handleAction('shorter', onMakeShorter),
       color: 'text-info-400 hover:bg-info-500/10',
     },
     {
       id: 'emotion',
       icon: Heart,
-      label: 'Más Emoción',
+      label: 'More Emotion',
       onClick: () => handleAction('emotion', onAddEmotion),
       color: 'text-error-400 hover:bg-error-500/10',
     },
     {
       id: 'save',
       icon: isSaved ? Check : Star,
-      label: isSaved ? 'Guardado' : 'Guardar',
+      label: isSaved ? 'Saved' : 'Save',
       onClick: onSaveToFavorites,
       color: isSaved
         ? 'text-accent bg-accent/10'
@@ -85,7 +85,7 @@ export function QuickActions({
     {
       id: 'copy',
       icon: copied ? Check : Copy,
-      label: copied ? 'Copiado' : 'Copiar',
+      label: copied ? 'Copied' : 'Copy',
       onClick: handleCopy,
       color: copied
         ? 'text-success bg-success/10'
@@ -134,14 +134,14 @@ export function QuickActionsCompact({
       <button
         onClick={onRegenerateHook}
         className="p-1.5 rounded-md text-text-muted hover:text-primary-400 hover:bg-primary-500/10 transition-colors"
-        title="Regenerar Hook"
+        title="Regenerate Hook"
       >
         <Sparkles className="w-4 h-4" />
       </button>
       <button
         onClick={onCopy}
         className="p-1.5 rounded-md text-text-muted hover:text-white hover:bg-surface-3 transition-colors"
-        title="Copiar"
+        title="Copy"
       >
         <Copy className="w-4 h-4" />
       </button>
@@ -152,7 +152,7 @@ export function QuickActionsCompact({
             ? 'text-accent bg-accent/10'
             : 'text-text-muted hover:text-accent hover:bg-accent/10'
         }`}
-        title={isSaved ? 'Guardado' : 'Guardar'}
+        title={isSaved ? 'Saved' : 'Save'}
       >
         <Star className={`w-4 h-4 ${isSaved ? 'fill-current' : ''}`} />
       </button>

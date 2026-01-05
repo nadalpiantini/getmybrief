@@ -1,14 +1,19 @@
 import { useState, useMemo } from 'react';
 import { DayCell } from './DayCell';
+import { ReelModal } from './ReelModal';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from 'lucide-react';
 import { Button } from '@/components/ui';
+import { useReelsStore } from '@/lib/stores/reels-store';
 import type { CalendarDay } from '@/lib/types';
-import toast from 'react-hot-toast';
 
-const DAYS_OF_WEEK = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+const DAYS_OF_WEEK = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
 export function CalendarView() {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
+  const { reels, addReel, updateReel, completeReel, deleteReel } = useReelsStore();
 
   // Generate 30 days of calendar data
   const calendarDays = useMemo((): CalendarDay[] => {
@@ -18,16 +23,21 @@ export function CalendarView() {
     for (let i = 0; i < 30; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
+      const dateStr = date.toISOString().split('T')[0];
+
+      // Check if there's a reel for this date
+      const reel = reels[dateStr];
 
       days.push({
-        date: date.toISOString().split('T')[0],
-        status: i < 3 ? 'completed' : i < 7 ? 'planned' : 'empty',
-        title: i < 3 ? `Reel ${i + 1}` : undefined,
+        date: dateStr,
+        reelId: reel?.id,
+        status: reel?.status || 'empty',
+        title: reel?.title,
       });
     }
 
     return days;
-  }, []);
+  }, [reels]);
 
   const todayStr = new Date().toISOString().split('T')[0];
 
@@ -39,12 +49,31 @@ export function CalendarView() {
   }, [calendarDays]);
 
   const handleDayClick = (day: CalendarDay) => {
-    if (day.status === 'empty') {
-      toast.success(`Crear reel para ${day.date}`);
-    } else if (day.status === 'planned') {
-      toast.success(`Editar reel planificado: ${day.title || day.date}`);
+    setSelectedDate(day.date);
+    setModalOpen(true);
+  };
+
+  const selectedReel = selectedDate ? reels[selectedDate] : undefined;
+
+  const handleSaveReel = (title: string, content: string) => {
+    if (!selectedDate) return;
+
+    if (selectedReel) {
+      updateReel(selectedDate, { title, content });
     } else {
-      toast.success(`Ver reel completado: ${day.title || day.date}`);
+      addReel(selectedDate, title, content);
+    }
+  };
+
+  const handleCompleteReel = () => {
+    if (selectedDate) {
+      completeReel(selectedDate);
+    }
+  };
+
+  const handleDeleteReel = () => {
+    if (selectedDate) {
+      deleteReel(selectedDate);
     }
   };
 
@@ -69,8 +98,8 @@ export function CalendarView() {
             <CalendarIcon className="w-4 h-4 text-primary" />
           </div>
           <div>
-            <h2 className="font-semibold text-white">Calendario</h2>
-            <p className="text-xs text-gray-500">Proximos 30 dias</p>
+            <h2 className="font-semibold text-white">Calendar</h2>
+            <p className="text-xs text-gray-500">Next 30 days</p>
           </div>
         </div>
         <div className="flex items-center gap-1">
@@ -87,15 +116,15 @@ export function CalendarView() {
       <div className="grid grid-cols-3 gap-2 p-4 border-b border-border">
         <div className="text-center">
           <div className="text-2xl font-bold text-green-500">{stats.completed}</div>
-          <div className="text-xs text-gray-500">Completados</div>
+          <div className="text-xs text-gray-500">Completed</div>
         </div>
         <div className="text-center">
           <div className="text-2xl font-bold text-yellow-500">{stats.planned}</div>
-          <div className="text-xs text-gray-500">Planificados</div>
+          <div className="text-xs text-gray-500">Planned</div>
         </div>
         <div className="text-center">
           <div className="text-2xl font-bold text-gray-500">{stats.empty}</div>
-          <div className="text-xs text-gray-500">Pendientes</div>
+          <div className="text-xs text-gray-500">Pending</div>
         </div>
       </div>
 
@@ -129,17 +158,28 @@ export function CalendarView() {
       <div className="px-4 py-3 border-t border-border flex justify-center gap-4">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-green-500" />
-          <span className="text-xs text-gray-400">Completado</span>
+          <span className="text-xs text-gray-400">Completed</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
-          <span className="text-xs text-gray-400">Planificado</span>
+          <span className="text-xs text-gray-400">Planned</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-gray-500" />
-          <span className="text-xs text-gray-400">Vacio</span>
+          <span className="text-xs text-gray-400">Empty</span>
         </div>
       </div>
+
+      {/* Reel Modal */}
+      <ReelModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        date={selectedDate || ''}
+        existingReel={selectedReel}
+        onSave={handleSaveReel}
+        onComplete={handleCompleteReel}
+        onDelete={handleDeleteReel}
+      />
     </div>
   );
 }

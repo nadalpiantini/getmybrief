@@ -8,29 +8,29 @@ interface QuickWinDemoProps {
 }
 
 const DEMO_SCRIPT = {
-  topic: "Cómo superar el bloqueo creativo",
-  script: `**TOMA 1 - HOOK (2s)**
-"¿Te has quedado mirando la pantalla sin saber qué publicar?"
+  topic: "How to overcome creative block",
+  script: `**TAKE 1 - HOOK (2s)**
+"Ever stared at your screen with no idea what to post?"
 
-**TOMA 2 - PROBLEMA (5s)**
-"El bloqueo creativo no es falta de ideas.
-Es parálisis por demasiadas opciones."
+**TAKE 2 - PROBLEM (5s)**
+"Creative block isn't lack of ideas.
+It's paralysis from too many options."
 
-**TOMA 3 - AGITACIÓN (5s)**
-"Mientras tú piensas qué publicar,
-otros están robando la atención de TU audiencia."
+**TAKE 3 - AGITATION (5s)**
+"While you're thinking about what to post,
+others are stealing YOUR audience's attention."
 
-**TOMA 4 - SOLUCIÓN (10s)**
-"Usa el método de las 3 preguntas:
-1. ¿Qué problema resuelvo?
-2. ¿Qué emoción quiero generar?
-3. ¿Qué acción quiero que tomen?
+**TAKE 4 - SOLUTION (10s)**
+"Use the 3-question method:
+1. What problem do I solve?
+2. What emotion do I want to trigger?
+3. What action do I want them to take?
 
-Con esto, tienes un guión en 30 segundos."
+With this, you have a script in 30 seconds."
 
-**TOMA 5 - CTA (3s)**
-"Guarda este reel para cuando lo necesites.
-Y sígueme para más sistemas que funcionan."`,
+**TAKE 5 - CTA (3s)**
+"Save this reel for when you need it.
+And follow me for more systems that work."`,
 };
 
 export function QuickWinDemo({ onComplete, onSkip }: QuickWinDemoProps) {
@@ -68,10 +68,10 @@ export function QuickWinDemo({ onComplete, onSkip }: QuickWinDemoProps) {
           <Sparkles className="w-6 h-6 text-white" />
         </div>
         <h1 className="text-xl font-bold text-white mb-1">
-          Mira cómo funciona
+          See how it works
         </h1>
         <p className="text-sm text-text-secondary">
-          Un guión completo en 30 segundos
+          A complete script in 30 seconds
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export function QuickWinDemo({ onComplete, onSkip }: QuickWinDemoProps) {
         {phase === 'intro' && (
           <div className="flex flex-col items-center justify-center h-full animate-fade-in-up">
             <div className="bg-surface-1 border border-border rounded-xl p-4 mb-6 w-full">
-              <p className="text-sm text-text-secondary mb-2">Tema de ejemplo:</p>
+              <p className="text-sm text-text-secondary mb-2">Example topic:</p>
               <p className="text-white font-medium">"{DEMO_SCRIPT.topic}"</p>
             </div>
 
@@ -90,7 +90,7 @@ export function QuickWinDemo({ onComplete, onSkip }: QuickWinDemoProps) {
               leftIcon={<Play className="w-5 h-5" />}
               className="w-full"
             >
-              Ver la magia
+              See the magic
             </Button>
           </div>
         )}
@@ -103,7 +103,7 @@ export function QuickWinDemo({ onComplete, onSkip }: QuickWinDemoProps) {
                 <span className="w-2 h-2 bg-primary-400 rounded-full animate-bounce-dot" style={{ animationDelay: '150ms' }} />
                 <span className="w-2 h-2 bg-primary-400 rounded-full animate-bounce-dot" style={{ animationDelay: '300ms' }} />
               </div>
-              <span className="text-sm text-primary-400">Generando guión...</span>
+              <span className="text-sm text-primary-400">Generating script...</span>
             </div>
 
             <div className="flex-1 overflow-y-auto bg-surface-1 border border-border rounded-xl p-4">
@@ -125,8 +125,8 @@ export function QuickWinDemo({ onComplete, onSkip }: QuickWinDemoProps) {
 
             <div className="bg-gradient-to-r from-primary-500/10 to-primary-600/10 border border-primary-500/20 rounded-lg p-3 mb-4">
               <p className="text-sm text-white text-center">
-                <span className="text-primary-400 font-semibold">¡30 segundos!</span>
-                {' '}Guión listo para grabar
+                <span className="text-primary-400 font-semibold">30 seconds!</span>
+                {' '}Script ready to record
               </p>
             </div>
           </div>
@@ -142,7 +142,7 @@ export function QuickWinDemo({ onComplete, onSkip }: QuickWinDemoProps) {
             rightIcon={<ArrowRight className="w-5 h-5" />}
             className="w-full"
           >
-            Quiero guiones personalizados
+            I want personalized scripts
           </Button>
         )}
 
@@ -150,7 +150,7 @@ export function QuickWinDemo({ onComplete, onSkip }: QuickWinDemoProps) {
           onClick={onSkip}
           className="w-full py-2 text-sm text-text-muted hover:text-text-secondary transition-colors"
         >
-          {phase === 'result' ? 'Continuar sin configurar' : 'Saltar demo'}
+          {phase === 'result' ? 'Continue without setup' : 'Skip demo'}
         </button>
       </div>
     </div>
