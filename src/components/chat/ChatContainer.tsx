@@ -43,7 +43,7 @@ export function ChatContainer() {
 
         const fullPrompt = REEL_TEMPLATE_PROMPT(prompt, selectedTemplate?.type);
 
-        const apiKey = deepseekApiKey || 'sk-5ed0c1fd20d540a7bda1ef34676745cb';
+        const apiKey = deepseekApiKey;
         for await (const chunk of streamContent(fullPrompt, enhancedSystemPrompt, apiKey)) {
           fullContent += chunk;
           updateLastMessage(fullContent);
@@ -68,7 +68,7 @@ export function ChatContainer() {
 
   const handleSend = useCallback(
     async (prompt: string, _options?: ScriptOptions) => {
-      const apiKey = deepseekApiKey || 'sk-5ed0c1fd20d540a7bda1ef34676745cb';
+      const apiKey = deepseekApiKey;
       if (!apiKey) {
         toast.error('Configure your DeepSeek API key in settings');
         return;
