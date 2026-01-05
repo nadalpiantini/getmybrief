@@ -14,7 +14,7 @@ export async function addToWaitlist(email: string, source: string = 'landing') {
 
   if (error) {
     if (error.code === '23505') {
-      throw new Error('Este email ya esta en la lista de espera');
+      throw new Error('This email is already on the waitlist');
     }
     throw error;
   }
