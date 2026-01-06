@@ -20,8 +20,8 @@ interface SettingsActions {
 type SettingsStore = SettingsState & SettingsActions;
 
 const DEFAULT_SETTINGS: Settings = {
-  deepseekApiKey: import.meta.env.VITE_DEEPSEEK_API_KEY || 'sk-5ed0c1fd20d540a7bda1ef34676745cb',
-  driveFolderId: import.meta.env.VITE_DRIVE_FOLDER_ID || '1hC1B2heWUyfBHQPPRnbcdeZ9tGzict1T',
+  deepseekApiKey: import.meta.env.VITE_DEEPSEEK_API_KEY || '',
+  driveFolderId: import.meta.env.VITE_DRIVE_FOLDER_ID || '',
   defaultTemplate: 'reel-completo',
   autoSave: true,
 };
